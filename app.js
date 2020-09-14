@@ -10,11 +10,12 @@ const graphqlResolver = require('./graphql/resolver');
 const auth = require('./middleware/auth');
 
 const { clearImage } = require('./util/file');
+const mongodburi = require('./mongo');
+
 
 const app = express();
 
-const MONGODB_URI =
-    "mongodb+srv://jin:fkCB135UHCcAz4El@cluster0-ektra.azure.mongodb.net/messages";
+const MONGODB_URI = mongodburi;
 
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
